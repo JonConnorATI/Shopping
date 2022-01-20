@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 //import cucumber.api.java.After;
 //import cucumber.api.java.Before;
 
-public class BaseMethods {
+public class BaseMethodsMANDM {
 
 	public static WebDriver driver;
 
