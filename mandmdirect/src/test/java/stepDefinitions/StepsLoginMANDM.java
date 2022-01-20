@@ -51,13 +51,13 @@ public class StepsLoginMANDM extends BaseMethodsMANDM {
 	
 	@Then("^There should be ([^\"]*) message displayed$")
 	public void there_should_be_message_displayed(String errorMessage) throws Throwable {
-		if (errorMessage == "An Error") {
-
+		if (errorMessage == "Error		") {
 			LoginPageMANDM.checkLoginErrorMessage();
+			
 
 		} else {
 			MyAccountPageMANDM.checkTitle("MandM Direct Welcome");
-
+			
 		}
 
 	}
