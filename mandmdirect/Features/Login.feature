@@ -12,7 +12,7 @@ When I press Login
 Then There should be <message> message displayed
 
 Examples:
-|username						| password 	|message		|
-|jondonuttest@sharklasers.com	|Cloggone	|An Error		|
-|jondonuttesttw@sharklasers.com	|Cloggtwo!	|An Error		|
-|JonDublin@sharklasers.com 		|Clogg9711	|No Error		|
+|username						| password 	|message	|
+|jondonuttest@sharklasers.com	|Cloggone	|Error		|
+|jondonuttesttw@sharklasers.com	|Cloggtwo!	|Error		|
+|JonDublin@sharklasers.com 		|Clogg9711	|OK			|
