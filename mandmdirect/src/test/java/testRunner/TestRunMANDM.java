@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions;
 				glue="stepDefinitions",
 				dryRun=false,
 				monochrome=true,
-				plugin= {"pretty","html:test-output","html:target/cucumber-reports"},
+				plugin= {"pretty","html:target/cucumber-reports"},
 				publish = true,
 				tags = ""
 				
@@ -21,6 +21,6 @@ import io.cucumber.junit.CucumberOptions;
 
 
 
-public class TestRun {
+public class TestRunMANDM {
 
 }
