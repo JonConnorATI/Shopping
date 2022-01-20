@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 						
 				features=".//Features",
 				glue="stepDefinitions",
-				dryRun=true,
+				dryRun=false,
 				monochrome=true,
 				plugin= {"pretty","html:test-output","html:target/cucumber-reports"},
 				publish = true,
