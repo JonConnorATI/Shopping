@@ -8,7 +8,6 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import pageObjects.HomePageMANDM;
 import pageObjects.LoginPageMANDM;
-import pageObjects.MyAccountPageMANDM;
 
 public class StepsLoginMANDM extends BaseMethodsMANDM {
 	
@@ -50,14 +49,15 @@ public class StepsLoginMANDM extends BaseMethodsMANDM {
 	}
 	
 	@Then("^There should be ([^\"]*) message displayed$")
-	public void there_should_be_message_displayed(String errorMessage) throws Throwable {
-		if (errorMessage == "Error		") {
+	public void there_should_be_message_displayed(String errorMessage) {
+		if (errorMessage == "An Error") {
+
 			LoginPageMANDM.checkLoginErrorMessage();
-			
 
 		} else {
-			MyAccountPageMANDM.checkTitle("MandM Direct Welcome");
-			
+			System.out.println("In the else section");
+			LoginPageMANDM.checkTitle("MandM Direct Welcome");
+
 		}
 
 	}

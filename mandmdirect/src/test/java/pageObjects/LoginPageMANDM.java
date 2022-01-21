@@ -28,6 +28,15 @@ public class LoginPageMANDM extends BaseMethodsMANDM {
 		
 	}
 
+	public static MyAccountPageMANDM checkTitle (String title) {
+		assertEquals(driver.getTitle(), (title));
+		
+		return new MyAccountPageMANDM();
+		
+		}
+		
+	
+
 	
 
 }
