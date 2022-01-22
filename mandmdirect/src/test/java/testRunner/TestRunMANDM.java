@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions
 				(
 						
-				features=".//Features",
+				features=".//Features//FindCheapestJeans.feature",
 				glue="stepDefinitions",
 				dryRun=false,
 				monochrome=true,
