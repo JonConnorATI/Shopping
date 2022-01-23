@@ -3,6 +3,8 @@ package pageObjects;
 import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import baseMethods.BaseMethodsMANDM;
 
@@ -24,9 +26,10 @@ public class HomePageMANDM extends BaseMethodsMANDM{
 	
 	//Accept cookies to remove the cover from the screen
 	public static void acceptCookies() {
+
 		WaitForElementToBePresent(By.id("onetrust-accept-btn-handler"));
 		Click(By.id("onetrust-accept-btn-handler"));
-		
+
 	}
 
 	//Select the link for mens 
