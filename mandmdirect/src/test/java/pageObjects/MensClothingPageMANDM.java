@@ -67,4 +67,33 @@ public class MensClothingPageMANDM extends BaseMethodsMANDM {
 
 	}
 
+	public static void shopBasketCount(Integer int1) throws InterruptedException  {
+		Thread.sleep(3000);
+		WaitForElementToBePresent(By.className("icon__count"));
+		WebElement count = driver.findElement(By.className("icon__count"));
+						
+		int a = Integer.parseInt(count.getText().replaceAll("[^0-9]", ""));
+		Assert.assertTrue(int1==a);
+		System.out.println("Actual " + a + " is the same as Expected " + int1);
+		
+	}
+
+	public static void addToCart() {
+		Click(By.xpath("(//*[@id='productlist']//button[@class='product__quick-buy'])[1]"));
+		Click(By.xpath("(//button[@class='attributes__select' and contains(text(), 'Waist 36')])[1]"));
+		Click(By.xpath("(//*[@class='product__atb buyButton'])[1]"));
+		Click(By.cssSelector("#atbClose"));
+		
+	}
+
+	public static void logOut() {
+		Click(By.cssSelector("#logoutlink"));
+		
+		
+	}
+
+	
+	
+	
+
 }
