@@ -3,6 +3,10 @@ package pageObjects;
 import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.By;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1d5cb24852b16ab1eb5feff4bab539d67c16c4a
 
 import baseMethods.BaseMethodsMANDM;
 
