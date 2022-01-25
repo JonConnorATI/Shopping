@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import org.openqa.selenium.By;
+
 import baseMethods.BaseMethodsMANDM;
 import io.cucumber.java.en.*;
 import pageObjects.HomePageMANDM;
@@ -26,11 +28,7 @@ public class StepsCartIsCached extends BaseMethodsMANDM {
 	   
 	}
 	
-	@And("my shopping basket count will be {int}")
-	public void my_shopping_basket_count_will_be(Integer int1) throws InterruptedException {
-	   MensClothingPageMANDM.shopBasketCount(int1);
-	}
-	
+		
 	@And("add them to the cart")
 	public void add_them_to_the_cart() {
 	   MensClothingPageMANDM.addToCart();
@@ -54,6 +52,14 @@ public class StepsCartIsCached extends BaseMethodsMANDM {
 		MyAccountPageMANDM.goshopping();
 		
 	}
+
+	@Given("that I clear the basket")
+	public void that_i_clear_the_basket() {
+		hoverOverElement(By.cssSelector(".icon__count"));
+		hoverOverElementAndClick(By.cssSelector(".mini-basket-item__remove"));
+		
+	}
+
 
 
 
