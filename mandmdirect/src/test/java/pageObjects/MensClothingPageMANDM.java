@@ -67,6 +67,10 @@ public class MensClothingPageMANDM extends BaseMethodsMANDM {
 
 	}
 
+	//Assert that the number in the shopping basket is correct
+	//As it is a string, this needs converting into an integer
+	//I could have just compared "1" with "1" as the raw string
+	//but if any arithmetic is needed I now have a method to get an integer to work with
 	public static void shopBasketCount(Integer int1) throws InterruptedException  {
 		Thread.sleep(3000);
 		WaitForElementToBePresent(By.className("icon__count"));
@@ -77,7 +81,8 @@ public class MensClothingPageMANDM extends BaseMethodsMANDM {
 		System.out.println("Actual " + a + " is the same as Expected " + int1);
 		
 	}
-
+	
+	//Selects a product and adds to the cart
 	public static void addToCart() {
 		Click(By.xpath("(//*[@id='productlist']//button[@class='product__quick-buy'])[1]"));
 		Click(By.xpath("(//button[@class='attributes__select' and contains(text(), 'Waist 36')])[1]"));
@@ -85,7 +90,8 @@ public class MensClothingPageMANDM extends BaseMethodsMANDM {
 		Click(By.cssSelector("#atbClose"));
 		
 	}
-
+	
+	//log out the user
 	public static void logOut() {
 		Click(By.cssSelector("#logoutlink"));
 		
