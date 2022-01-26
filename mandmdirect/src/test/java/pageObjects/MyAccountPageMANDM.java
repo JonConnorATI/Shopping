@@ -2,9 +2,10 @@ package pageObjects;
 
 import static org.junit.Assert.assertEquals;
 
-import org.apache.commons.lang.RandomStringUtils;
+import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import baseMethods.BaseMethodsMANDM;
 
@@ -36,6 +37,12 @@ public class MyAccountPageMANDM extends BaseMethodsMANDM {
 		checkURL(string);
 		
 	}
+	
+	//Check URL of the Account Section
+	public static void urlAccountPageCheck(String string) {
+		checkURL("https://www.mandmdirect.ie/Secure/Account/" + string);
+	}
+		
 	
 	//Assert element attribute 'value' is as expected
 	public static void confirmElementValue(String string) {
@@ -77,34 +84,59 @@ public class MyAccountPageMANDM extends BaseMethodsMANDM {
 		
 	}
 	
-	//method to clear text field, enter text, save text and assert it has updated
+	//clear text in 1st name field, enter text, save text and assert it has updated
 	public static void editSaveCheckName() {
-		String s = RandomStringUtils.randomAlphanumeric(8);
-		
-		clearText(By.cssSelector("#FirstName"));
-		enterText(By.cssSelector("#FirstName"),s);
-		selectSave();
-		WebElement element = driver.findElement(By.xpath("(//*[@class='dl-horizontal']/dd)[2]"));
-		String actual = element.getText();
-		assertEquals(actual, s);
+				
+		editSaveCheckTextField(By.cssSelector("#FirstName"),By.xpath("(//*[@class='dl-horizontal']/dd)[2]"));
 		
 	}
 
+	//Select edit button in cardholder address section
 	public static void selectEditAddress() {
 		Click(By.cssSelector("#edit-address-link"));
 		waitForPageLoaded(driver);
 		
 	}
 
+	//clear text in address2 field, enter text, save text and assert it has updated
 	public static void editSaveCheckAddress() {
-		String s = RandomStringUtils.randomAlphanumeric(8);
+		editSaveCheckTextField(By.cssSelector("#Address_AddressLine2"),By.cssSelector("#AddressLine2-Display"));
 		
-		clearText(By.cssSelector("#Address_AddressLine2"));
-		enterText(By.cssSelector("#Address_AddressLine2"),s);
+	}
+
+	//Select edit button in the Account page section
+	public static void selectEditSection(String string) {
+		Click(By.cssSelector("#edit-" + string + "-link"));
+		waitForPageLoaded(driver);
+		
+	}
+
+	//clear text in phone field, enter text, save text and assert it has updated
+	public static void editSaveCheckphone() {
+		editSaveCheckTextField(By.cssSelector("#PhoneNumber"),By.xpath("(//*[@class='dl-horizontal']/dd)[1]"));
+		
+	}
+
+	public static void editSaveCheckDOBField() {
+		//Generate random numbers <=9
+		Random rand = new Random(System.currentTimeMillis());
+		int day = rand.nextInt(9);
+		int month = rand.nextInt(9);
+		
+		//make a string of these numbers in the correct format for the date fields
+		String dd = "0" + day;
+		String mm = "0" + month;
+ 		String yyyy = "1971";
+		String enterDOB = yyyy + "-" + mm + "-" + dd;
+		String DOBdisplay = dd + "/" + mm + "/" + yyyy;
+		
+		//Clear text, enter the date string, save, then assert correct date is displayed
+		clearText(By.cssSelector("#DateOfBirth"));
+		enterText(By.cssSelector("#DateOfBirth"),enterDOB);
 		selectSave();
-		WebElement element = driver.findElement(By.cssSelector("#AddressLine2-Display"));
+		WebElement element = driver.findElement(By.xpath("(//*[@class='dl-horizontal']/dd)[1]"));
 		String actual = element.getText();
-		assertEquals(actual, s);
+		Assert.assertEquals(actual, DOBdisplay);
 		
 	}
 	
