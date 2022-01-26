@@ -2,12 +2,15 @@ package baseMethods;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 //import cucumber.api.java.After;
 //import cucumber.api.java.Before;
@@ -109,5 +112,37 @@ public class BaseMethodsMANDM {
 		
 	}
 	
+	//Get the URL of a page and assert it is the same as the expected URL
+	public static void checkURL(String url) {
+		
+		String currentURL = driver.getCurrentUrl();
+		Assert.assertEquals(currentURL, url);
+		
+	}
+	
+	
+
+	//Gets the value of an elements attribute and asserts it is the same as the expected value
+	public static void checkElementAttributeText (By locator, String ExptdText) {
+		String ActText = driver.findElement(locator).getAttribute("value");
+		Assert.assertEquals(ActText, ExptdText);
+	}
+	
+	//Wait for a page to load
+	public static void waitForPageLoaded(WebDriver driver) {
+
+		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+			}
+		};
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		try {
+			wait.until(expectation);
+		} catch (Throwable error) {
+			Assert.assertFalse(true, "Timeout waiting for Page Load Request to complete.");
+		}
+	}
 
 }

@@ -9,13 +9,13 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions
 				(
 						
-				features=".//Features//CartIsCached.feature",
+				features=".//Features//AccountPage.feature",
 				glue="stepDefinitions",
 				dryRun=false,
 				monochrome=true,
 				plugin= {"pretty","html:target/cucumber-reports"},
 				publish = true,
-				tags = ""
+				tags = "@Test1"
 				
 				)
 
