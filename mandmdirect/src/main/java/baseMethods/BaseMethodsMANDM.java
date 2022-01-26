@@ -1,6 +1,11 @@
 package baseMethods;
 
+
+
+
 import java.time.Duration;
+
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
 
 //import cucumber.api.java.After;
 //import cucumber.api.java.Before;
@@ -143,6 +149,26 @@ public class BaseMethodsMANDM {
 		} catch (Throwable error) {
 			Assert.assertFalse(true, "Timeout waiting for Page Load Request to complete.");
 		}
+	}
+	
+	//Method to clear text in a field, update the field, save the entry and assert it displays correctly
+	public static void editSaveCheckTextField(By locator1, By locator2) {
+		
+		String s = RandomStringUtils.randomAlphanumeric(8);
+		
+		clearText(locator1);
+		enterText((locator1),s);
+		save();
+		WebElement element = driver.findElement(locator2);
+		String actual = element.getText();
+		Assert.assertEquals(actual, s);
+		
+	}
+	
+	public static void save() {
+		Click(By.cssSelector("#btnSave"));
+		waitForPageLoaded(driver);
+		
 	}
 
 }

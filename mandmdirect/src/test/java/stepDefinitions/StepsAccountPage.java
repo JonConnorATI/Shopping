@@ -17,11 +17,7 @@ public class StepsAccountPage extends BaseMethodsMANDM {
 		MyAccountPageMANDM.checkTitle("MandM Direct Welcome");
 	}
 	
-	@Given("I select the Orders and Return Tab")
-	public void i_select_the_orders_and_return_tab() {
-		MyAccountPageMANDM.SelectTab("Orders and Returns");
-	}
-	
+		
 	@Then("I should be in the Orders and Returns section")
 	public void i_should_be_in_the_orders_and_returns_section() {
 	    MyAccountPageMANDM.urlCheck("https://www.mandmdirect.ie/Secure/Account/Orders");
@@ -30,12 +26,6 @@ public class StepsAccountPage extends BaseMethodsMANDM {
 	@Then("there should be a continue shopping button")
 	public void there_should_be_a_continue_shopping_button() {
 	    MyAccountPageMANDM.confirmElementValue("Continue Shopping");
-	}
-	
-	
-	@Given("I select the Contact Preferences Tab")
-	public void i_select_the_contact_preferences_tab() {
-		MyAccountPageMANDM.SelectTab("Contact Preferences");
 	}
 	
 	@Then("I should be in the Contact Preferences section")
@@ -62,45 +52,50 @@ public class StepsAccountPage extends BaseMethodsMANDM {
 	public void i_will_see_a_confirmation_message(String string) {
 	   MyAccountPageMANDM.checkText(string);
 	}
-
-	@Given("I select the Customer Name Tab")
-	public void i_select_the_customer_name_tab() {
-		MyAccountPageMANDM.SelectTab("Customer Name");
-	}
 	
-	@Then("I should be in the Customer Name section")
-	public void i_should_be_in_the_customer_name_section() {
-		MyAccountPageMANDM.urlCheck("https://www.mandmdirect.ie/Secure/Account/Customer");
-	}
-	
-	@When("I select to edit the name")
-	public void i_select_to_edit_the_name() {
-	    MyAccountPageMANDM.selectEditName();
-	}
-	
+		
 	@Then("I can change the first name and select save so that it will be updated")
 	public void i_can_change_the_first_name_and_select_save_so_that_it_will_be_updated() {
 		MyAccountPageMANDM.editSaveCheckName();
 		
 	}
-
-	@Given("I select the Cardholder Address Tab")
-	public void i_select_the_cardholder_address_tab() {
-		MyAccountPageMANDM.SelectTab("Cardholder Address");
-	}
 	
-	@Then("I should be in the Cardholder Address section")
-	public void i_should_be_in_the_cardholder_address_section() {
-		MyAccountPageMANDM.urlCheck("https://www.mandmdirect.ie/Secure/Account/Address");
-	}
-	@When("I select edit")
-	public void i_select_edit() {
-		MyAccountPageMANDM.selectEditAddress();
-	}
+	
 	@Then("I can change address2 and select save so that it will be updated")
 	public void i_can_change_address2_and_select_save_so_that_it_will_be_updated() {
 		MyAccountPageMANDM.editSaveCheckAddress();
 	}
+
+	@Given("I select the {string} Tab")
+	public void i_select_the_tab(String string) {
+		MyAccountPageMANDM.SelectTab(string);
+	}
+	
+	@Then("I should be in the {string} section")
+	public void i_should_be_in_the_section(String string) {
+		MyAccountPageMANDM.urlAccountPageCheck(string);
+	}
+	
+
+	@When("I select to edit {string} section")
+	public void i_select_to_edit_section(String string) {
+		MyAccountPageMANDM.selectEditSection(string);
+	}
+
+
+	@Then("I can change the number and select save so that it will be updated")
+	public void i_can_change_the_number_and_select_save_so_that_it_will_be_updated() {
+		MyAccountPageMANDM.editSaveCheckphone();
+	}
+	
+	@Then("I can change the Date of Birth and select save so that it will be updated")
+	public void i_can_change_the_date_of_birth_and_select_save_so_that_it_will_be_updated() {
+		MyAccountPageMANDM.editSaveCheckDOBField();
+	}
+
+
+
+
 
 
 
