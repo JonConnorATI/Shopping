@@ -60,6 +60,12 @@ public class BaseMethodsMANDM {
 	public static void WaitForElementToBePresent (By locator) {
 		 new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
+	
+	//wait for element to NOT be present
+	public static void WaitForElementNotToBePresent (By locator) {
+		WebElement element = driver.findElement(locator);
+		new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.invisibilityOf(element));
+	}
 
 	//enter text into a field
 	public static void enterText(By locator, String text) {
@@ -131,7 +137,9 @@ public class BaseMethodsMANDM {
 	//Gets the value of an elements attribute and asserts it is the same as the expected value
 	public static void checkElementAttributeText (By locator, String ExptdText) {
 		String ActText = driver.findElement(locator).getAttribute("value");
+		System.out.println("actual is: " + ActText + " and Expctd is: " + ExptdText);
 		Assert.assertEquals(ActText, ExptdText);
+		
 	}
 	
 	//Wait for a page to load
@@ -169,6 +177,11 @@ public class BaseMethodsMANDM {
 		Click(By.cssSelector("#btnSave"));
 		waitForPageLoaded(driver);
 		
+	}
+	
+	public static void refreshPage() {
+		driver.navigate().refresh();
+		waitForPageLoaded(driver);
 	}
 
 }

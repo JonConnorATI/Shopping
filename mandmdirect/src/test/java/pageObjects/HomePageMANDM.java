@@ -39,6 +39,12 @@ public class HomePageMANDM extends BaseMethodsMANDM{
 		
 	}
 
+	public static void goToLogin() {
+		acceptCookies();
+		selectLoginLink();
+		
+	}
+
 	
 
 }

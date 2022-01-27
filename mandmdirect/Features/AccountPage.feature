@@ -37,17 +37,33 @@ When I select to edit "address" section
 Then I can change address2 and select save so that it will be updated
 
 
+Scenario: Open the Delivery Addresses section
+Given I select the "Delivery Addresses" Tab
+Then I should be in the "Delivery" section
+When I select to edit "delivery" section
+Then I can change delivery address and select save so that it will be updated
+
+
 Scenario: Open the Phone Numbers section
 Given I select the "Phone Numbers" Tab
 Then I should be in the "Phone" section
 When I select to edit "phone" section
 Then I can change the number and select save so that it will be updated
 
-@test1
+
 Scenario: Open the Date of Birth section
 Given I select the "Date of Birth" Tab
 Then I should be in the "Dob" section
 When I select to edit "dob" section
 Then I can change the Date of Birth and select save so that it will be updated
+
+
+@test1
+Scenario: Open the Email section
+Given I select the "Email" Tab
+Then I should be in the "Email" section
+When I select to edit "email" section
+Then I can change the email and select save so that it will be updated
+And change it back again to the original value
 
 

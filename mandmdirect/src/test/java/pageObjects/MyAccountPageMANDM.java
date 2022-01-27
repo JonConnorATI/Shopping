@@ -3,6 +3,8 @@ package pageObjects;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
+
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -28,7 +30,11 @@ public class MyAccountPageMANDM extends BaseMethodsMANDM {
 	//Select a tab from side menu
 	public static void SelectTab(String link) {
 		Click(By.linkText(link));
-		waitForPageLoaded(driver);
+		//waitForPageLoaded() still gave intermittent fails
+		//waitForPageLoaded(driver);
+		//Changed to wait for the active link (on the page the link section selected turns blue)
+		WaitForElementToBePresent(By.xpath("//a[text()='" + link + "']/ancestor::li[@class='active']"));
+		
 		
 	}
 
@@ -120,8 +126,10 @@ public class MyAccountPageMANDM extends BaseMethodsMANDM {
 	public static void editSaveCheckDOBField() {
 		//Generate random numbers <=9
 		Random rand = new Random(System.currentTimeMillis());
-		int day = rand.nextInt(9);
-		int month = rand.nextInt(9);
+		int low = 1;
+		int high = 9;
+		int day = rand.nextInt(high-low)+low;
+		int month = rand.nextInt(high-low)+low;
 		
 		//make a string of these numbers in the correct format for the date fields
 		String dd = "0" + day;
@@ -138,6 +146,67 @@ public class MyAccountPageMANDM extends BaseMethodsMANDM {
 		String actual = element.getText();
 		Assert.assertEquals(actual, DOBdisplay);
 		
+	}
+
+	//clear text in delivery address field, enter text, save text and assert it has updated
+	public static void editSaveCheckDelAddressField() throws InterruptedException {
+
+		String s = RandomStringUtils.randomAlphanumeric(8);
+		String locator1 = "#Address_AddressLine1";
+		//String locator2 = "#Address_AddressLine1";
+		clearText(By.cssSelector(locator1));
+		enterText(By.cssSelector(locator1),s);
+		selectSave();
+		//check the update window has gone and refresh page if still present
+		if (isElementPresent(By.cssSelector("#pleaseWaitImage")))
+			refreshPage();
+		//get the text that was input and saved and check it has updated
+		checkElementAttributeText(By.xpath("//*[@class='orderInnerBox']/*[@name='hid.AddressLine1']"), s); 
+			
+	}
+	
+	//Enter and confirm new email addresss
+	public static void enterNewEmail() {
+		String newEmail ="JonathanDublin@sharklasers.com";
+		String locator1 = "#EmailAddress"; 
+		String locator2 = "#ConfirmEmailAddress"; 
+		
+		clearText(By.cssSelector(locator1));
+		enterText(By.cssSelector(locator1),newEmail);
+		clearText(By.cssSelector(locator2));
+		enterText(By.cssSelector(locator2),newEmail);
+		selectSave();
+		
+	}
+	
+	// Accept changes to email address and confirm it has been accepted
+	public static void acceptChanges() {
+		String newEmail = "JonathanDublin@sharklasers.com";
+
+		Click(By.cssSelector("#delete-confirmation-yes"));
+		WaitForElementNotToBePresent(By.cssSelector("#delete-confirmation-yes"));
+		WebElement element1 = driver.findElement(By.xpath("(//*[@class='dl-horizontal']/dd)[1]"));
+		String actual = element1.getText();
+		Assert.assertEquals(actual, newEmail);
+
+	}
+	
+	//change the email back
+	public static void revertEmail() {
+		String currentEmail = "JonDublin@sharklasers.com";
+		String locator1 = "#EmailAddress";
+		String locator2 = "#ConfirmEmailAddress";
+		
+		Click(By.cssSelector("#edit-email-link"));
+		waitForPageLoaded(driver);
+		clearText(By.cssSelector(locator1));
+		enterText(By.cssSelector(locator1), currentEmail);
+		clearText(By.cssSelector(locator2));
+		enterText(By.cssSelector(locator2), currentEmail);
+		selectSave();
+		Click(By.cssSelector("#delete-confirmation-yes"));
+		WaitForElementNotToBePresent(By.cssSelector("#delete-confirmation-yes"));
+
 	}
 	
 	

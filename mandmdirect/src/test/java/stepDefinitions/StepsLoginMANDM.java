@@ -24,17 +24,20 @@ public class StepsLoginMANDM extends BaseMethodsMANDM {
 		closeDriver();
 	}
 
-	@Given("I open the website and go to sign in")
-	public void i_open_the_website_and_go_to_sign_in() throws InterruptedException {
+	@Given("I open the website and select sign in")
+	public void i_open_the_website_and_select_sign_in() throws InterruptedException {
+		
 		navigateToHomePage();
-		HomePageMANDM.acceptCookies();
-		HomePageMANDM.selectLoginLink();
+		HomePageMANDM.goToLogin();
+		
 	}
 
-	@When("^The ([^\"]*) is entered into the username field$")
-	public void the_is_entered_into_the_username_field(String username) {
+	@When("^I enter email ([^\"]*) and password ([^\\\"]*) then press login$")
+	public void i_enter_email_and_password_then_press_login(String username, String password) {
 
 		LoginPageMANDM.enterUsername(username);
+		LoginPageMANDM.enterPassword(password);
+		LoginPageMANDM.pressLoginButton();
 	}
 
 	@When("^([^\"]*) is entered into the password field$")
