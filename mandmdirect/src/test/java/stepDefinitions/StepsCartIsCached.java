@@ -15,8 +15,7 @@ public class StepsCartIsCached extends BaseMethodsMANDM {
 	@Given("I log into my account as the Test User")
 	public void i_log_into_my_account_as_the_test_user() {
 		navigateToHomePage();
-		HomePageMANDM.acceptCookies();
-		HomePageMANDM.selectLoginLink();
+		HomePageMANDM.goToLogin();
 		LoginPageMANDM.enterUsername("JonDublin@sharklasers.com");
 		LoginPageMANDM.enterPassword("Clogg9711");
 		LoginPageMANDM.pressLoginButton();

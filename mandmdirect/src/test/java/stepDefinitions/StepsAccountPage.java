@@ -92,6 +92,30 @@ public class StepsAccountPage extends BaseMethodsMANDM {
 	public void i_can_change_the_date_of_birth_and_select_save_so_that_it_will_be_updated() {
 		MyAccountPageMANDM.editSaveCheckDOBField();
 	}
+	
+	@Then("I can change delivery address and select save so that it will be updated")
+	public void i_can_change_delivery_address_and_select_save_so_that_it_will_be_updated() throws InterruptedException {
+		MyAccountPageMANDM.editSaveCheckDelAddressField();
+	}
+	
+	@Then("I can change the email and select save so that it will be updated")
+	public void i_can_change_the_email_and_select_save_so_that_it_will_be_updated() {
+	   MyAccountPageMANDM.enterNewEmail();
+	   MyAccountPageMANDM.acceptChanges();
+	}
+
+	@Then("change it back again to the original value")
+	public void change_it_back_again_to_the_original_value() {
+		MyAccountPageMANDM.revertEmail();
+	}
+
+
+
+
+
+
+
+
 
 
 

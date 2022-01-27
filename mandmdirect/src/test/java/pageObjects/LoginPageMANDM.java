@@ -21,6 +21,7 @@ public class LoginPageMANDM extends BaseMethodsMANDM {
 	// Press the login button
 	public static void pressLoginButton() {
 		Click(By.cssSelector(".disableableContinueButton"));
+		waitForPageLoaded(driver);
 
 	}
 

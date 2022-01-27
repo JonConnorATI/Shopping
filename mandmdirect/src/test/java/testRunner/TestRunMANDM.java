@@ -15,7 +15,7 @@ import io.cucumber.junit.CucumberOptions;
 				monochrome=true,
 				plugin= {"pretty","html:target/cucumber-reports"},
 				publish = true,
-				tags = "@test1"
+				tags = ""
 				
 				)
 
