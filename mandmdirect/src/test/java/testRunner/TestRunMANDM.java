@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions
 				(
 						
-				features=".//Features//AccountPage.feature",
+				features=".//Features//ChangePassword.feature",
 				glue="stepDefinitions",
 				dryRun=false,
 				monochrome=true,

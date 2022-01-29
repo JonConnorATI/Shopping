@@ -4,9 +4,14 @@ package stepDefinitions;
 
 
 
+import java.util.List;
+import java.util.Map;
+import io.cucumber.datatable.*;
+
 import commonMethods.commonMethodsMANDM;
 import io.cucumber.java.en.*;
 import pageObjects.MyAccountPageMANDM;
+
 
 public class StepsAccountPageMANDM extends commonMethodsMANDM {
 	
@@ -18,20 +23,25 @@ public class StepsAccountPageMANDM extends commonMethodsMANDM {
 	}
 	
 		
-	@Then("I should be in the Orders and Returns section")
-	public void i_should_be_in_the_orders_and_returns_section() {
-	    MyAccountPageMANDM.urlCheck("https://www.mandmdirect.ie/Secure/Account/Orders");
-	}
+	/*
+	 * @Then("I should be in the Orders and Returns section") public void
+	 * i_should_be_in_the_orders_and_returns_section() {
+	 * MyAccountPageMANDM.urlCheck(
+	 * "https://www.mandmdirect.ie/Secure/Account/Orders"); }
+	 */
 	
 	@Then("there should be a continue shopping button")
 	public void there_should_be_a_continue_shopping_button() {
 	    MyAccountPageMANDM.confirmElementValue("Continue Shopping");
 	}
 	
-	@Then("I should be in the Contact Preferences section")
-	public void i_should_be_in_the_contact_preferences_section() {
-		MyAccountPageMANDM.urlCheck("https://www.mandmdirect.ie/Secure/Account/Mailing");
-	}
+	/*
+	 * @Then("I should be in the Contact Preferences section") public void
+	 * i_should_be_in_the_contact_preferences_section() {
+	 * MyAccountPageMANDM.urlCheck(
+	 * "https://www.mandmdirect.ie/Secure/Account/Mailing"); }
+	 */
+	
 	
 	@Then("I will see a checkbox asking if I don't want to be contacted")
 	public void i_will_see_a_checkbox_asking_if_i_don_t_want_to_be_contacted() {
@@ -108,7 +118,23 @@ public class StepsAccountPageMANDM extends commonMethodsMANDM {
 	public void change_it_back_again_to_the_original_value() {
 		MyAccountPageMANDM.revertEmail();
 	}
+	
 
+	@Then("I can change the password and select save so that it will be updated")
+	public void i_can_change_the_password_and_select_save_so_that_it_will_be_updated(DataTable dataTable) throws InterruptedException {
+		List<Map<String,String>> data = dataTable.asMaps(String.class,String.class);
+		String currentPassword = data.get(0).get("current password");
+		String newPassword = data.get(0).get("new password");
+		
+		MyAccountPageMANDM.changePassword(currentPassword,newPassword);
+		
+		
+	}
+
+	@Then("I receive a message {string}")
+	public void i_receive_a_message(String string) {
+		MyAccountPageMANDM.checkAlertText(string);
+	}
 
 
 

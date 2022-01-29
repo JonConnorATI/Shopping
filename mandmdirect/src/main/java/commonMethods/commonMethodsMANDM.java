@@ -159,7 +159,7 @@ public class commonMethodsMANDM {
 		}
 	}
 	
-	//Method to clear text in a field, update the field, save the entry and assert it displays correctly
+	//Method to clear text in a field, update the field with a random string, save the entry and assert it displays correctly
 	public static void editSaveCheckTextField(By locator1, By locator2) {
 		
 		String s = RandomStringUtils.randomAlphanumeric(8);
