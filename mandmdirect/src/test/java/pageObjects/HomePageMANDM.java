@@ -45,6 +45,15 @@ public class HomePageMANDM extends commonMethodsMANDM{
 		
 	}
 
+	public static void clearBasket() {
+		hoverOverElement(By.cssSelector(".icon__count"));
+		WaitForElementToBePresent(By.cssSelector(".mini-basket-item__remove"));
+		hoverOverElementAndClick(By.cssSelector(".mini-basket-item__remove"));
+		
+	}
+	
+	
+
 	
 
 }
