@@ -3,13 +3,13 @@ package stepDefinitions;
 import java.util.List;
 import java.util.Map;
 
-import baseMethods.BaseMethodsMANDM;
+import commonMethods.commonMethodsMANDM;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import pageObjects.HomePageMANDM;
 import pageObjects.MensClothingPageMANDM;
 
-public class StepsFindCheapestJeansMANDM extends BaseMethodsMANDM {
+public class StepsFindCheapestJeansMANDM extends commonMethodsMANDM {
 	
 	
 	@Given("I open the website I will be in the landing page")

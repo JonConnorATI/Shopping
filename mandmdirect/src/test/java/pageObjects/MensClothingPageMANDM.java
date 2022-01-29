@@ -6,9 +6,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import baseMethods.BaseMethodsMANDM;
 
-public class MensClothingPageMANDM extends BaseMethodsMANDM {
+import commonMethods.commonMethodsMANDM;
+
+public class MensClothingPageMANDM extends commonMethodsMANDM {
 
 	// Choose the product
 	public static void chooseProduct(String product) {

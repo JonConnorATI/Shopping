@@ -2,14 +2,14 @@ package stepDefinitions;
 
 import org.openqa.selenium.By;
 
-import baseMethods.BaseMethodsMANDM;
+import commonMethods.commonMethodsMANDM;
 import io.cucumber.java.en.*;
 import pageObjects.HomePageMANDM;
 import pageObjects.LoginPageMANDM;
 import pageObjects.MensClothingPageMANDM;
 import pageObjects.MyAccountPageMANDM;
 
-public class StepsCartIsCachedMANDM extends BaseMethodsMANDM {
+public class StepsCartIsCachedMANDM extends commonMethodsMANDM {
 	
 
 	@Given("I log into my account as the Test User")

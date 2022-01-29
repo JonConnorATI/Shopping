@@ -4,11 +4,11 @@ package stepDefinitions;
 
 
 
-import baseMethods.BaseMethodsMANDM;
+import commonMethods.commonMethodsMANDM;
 import io.cucumber.java.en.*;
 import pageObjects.MyAccountPageMANDM;
 
-public class StepsAccountPageMANDM extends BaseMethodsMANDM {
+public class StepsAccountPageMANDM extends commonMethodsMANDM {
 	
 	
 

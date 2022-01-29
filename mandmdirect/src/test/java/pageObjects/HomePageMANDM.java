@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 
-import baseMethods.BaseMethodsMANDM;
+import commonMethods.commonMethodsMANDM;
 
-public class HomePageMANDM extends BaseMethodsMANDM{
+public class HomePageMANDM extends commonMethodsMANDM{
 
 	public static void selectLoginLink() {
 		Click(By.className("myAccount_guest"));
