@@ -82,6 +82,15 @@ public class MyAccountPageMANDM extends commonMethodsMANDM {
 		assertEquals(actual, string);
 		
 	}
+	//Check a string of text is as expected
+		public static void checkAlertText(String string) {
+			WebElement element = driver.findElement(By.cssSelector("#saveConfirmation"));
+			String actual = element.getText();
+			assertEquals(actual, string);
+			
+		}
+	
+	
 
 	//select the edit button to edit Name section
 	public static void selectEditName() {
@@ -123,6 +132,7 @@ public class MyAccountPageMANDM extends commonMethodsMANDM {
 		
 	}
 
+	//method to create a random number in the correct format, update date of birth and confirm its been changed
 	public static void editSaveCheckDOBField() {
 		//Generate random numbers <=9
 		Random rand = new Random(System.currentTimeMillis());
@@ -208,6 +218,27 @@ public class MyAccountPageMANDM extends commonMethodsMANDM {
 		WaitForElementNotToBePresent(By.cssSelector("#delete-confirmation-yes"));
 
 	}
+
+	//change the password to a new value
+	public static void changePassword(String currentPassword, String newPassword) throws InterruptedException {
+		
+		clearText(By.cssSelector("#Password"));
+		enterText(By.cssSelector("#Password"), currentPassword);
+		clearText(By.cssSelector("#NewPassword"));
+		enterText(By.cssSelector("#NewPassword"), newPassword);
+		clearText(By.cssSelector("#ConfirmPassword"));
+		enterText(By.cssSelector("#ConfirmPassword"), newPassword);
+		selectSave();
+		Thread.sleep(10000);
+		
+		
+	}
+	
+	
+	
+
+
+
 	
 	
 
