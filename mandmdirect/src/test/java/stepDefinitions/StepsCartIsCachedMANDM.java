@@ -9,7 +9,7 @@ import pageObjects.LoginPageMANDM;
 import pageObjects.MensClothingPageMANDM;
 import pageObjects.MyAccountPageMANDM;
 
-public class StepsCartIsCached extends BaseMethodsMANDM {
+public class StepsCartIsCachedMANDM extends BaseMethodsMANDM {
 	
 
 	@Given("I log into my account as the Test User")
