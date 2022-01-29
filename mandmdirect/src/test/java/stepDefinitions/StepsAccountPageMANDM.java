@@ -8,7 +8,7 @@ import baseMethods.BaseMethodsMANDM;
 import io.cucumber.java.en.*;
 import pageObjects.MyAccountPageMANDM;
 
-public class StepsAccountPage extends BaseMethodsMANDM {
+public class StepsAccountPageMANDM extends BaseMethodsMANDM {
 	
 	
 
