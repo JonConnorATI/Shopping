@@ -9,9 +9,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import baseMethods.BaseMethodsMANDM;
+import commonMethods.commonMethodsMANDM;
 
-public class MyAccountPageMANDM extends BaseMethodsMANDM {
+public class MyAccountPageMANDM extends commonMethodsMANDM {
 
 	//Asserts the page title is correct
 	public static void checkTitle(String title) {

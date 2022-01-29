@@ -2,9 +2,10 @@ package pageObjects;
 
 import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.By;
-import baseMethods.BaseMethodsMANDM;
 
-public class LoginPageMANDM extends BaseMethodsMANDM {
+import commonMethods.commonMethodsMANDM;
+
+public class LoginPageMANDM extends commonMethodsMANDM {
 
 	// Enter username or email
 	public static void enterUsername(String username) {

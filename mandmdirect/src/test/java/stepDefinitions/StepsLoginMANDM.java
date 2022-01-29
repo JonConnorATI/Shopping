@@ -2,7 +2,7 @@ package stepDefinitions;
 
 import java.io.IOException;
 
-import baseMethods.BaseMethodsMANDM;
+import commonMethods.commonMethodsMANDM;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
@@ -10,7 +10,7 @@ import pageObjects.HomePageMANDM;
 
 import pageObjects.LoginPageMANDM;
 
-public class StepsLoginMANDM extends BaseMethodsMANDM {
+public class StepsLoginMANDM extends commonMethodsMANDM {
 
 	@Before()
 	public void setup() throws IOException {
