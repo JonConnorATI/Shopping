@@ -229,8 +229,6 @@ public class MyAccountPageMANDM extends commonMethodsMANDM {
 		clearText(By.cssSelector("#ConfirmPassword"));
 		enterText(By.cssSelector("#ConfirmPassword"), newPassword);
 		selectSave();
-		Thread.sleep(10000);
-		
 		
 	}
 	

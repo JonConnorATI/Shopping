@@ -54,8 +54,9 @@ public class StepsCartIsCachedMANDM extends commonMethodsMANDM {
 
 	@Given("that I clear the basket")
 	public void that_i_clear_the_basket() {
-		hoverOverElement(By.cssSelector(".icon__count"));
-		hoverOverElementAndClick(By.cssSelector(".mini-basket-item__remove"));
+		
+		HomePageMANDM.clearBasket();
+		
 		
 	}
 
