@@ -13,6 +13,7 @@ public class MensClothingPageMANDM extends commonMethodsMANDM {
 
 	// Choose the product
 	public static void chooseProduct(String product) {
+		WaitForElementToBePresent(By.cssSelector("#filter_product h2"));
 		Click(By.cssSelector("#filter_product h2"));
 		Click(By.xpath("//span[@class='product'and text()='" + product + "']"));
 
