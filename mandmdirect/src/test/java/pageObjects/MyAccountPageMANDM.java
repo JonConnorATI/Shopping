@@ -169,8 +169,10 @@ public class MyAccountPageMANDM extends commonMethodsMANDM {
 		selectSave();
 		//check the update window has gone and refresh page if still present
 		if (isElementPresent(By.cssSelector("#pleaseWaitImage")))
-			refreshPage();
+			WaitForElementNotToBePresent(By.cssSelector("#pleaseWaitImage"));
 		//get the text that was input and saved and check it has updated
+		refreshPage();
+		WaitForElementToBePresent(By.xpath("//*[@class='orderInnerBox']/*[@name='hid.AddressLine1']"));
 		checkElementAttributeText(By.xpath("//*[@class='orderInnerBox']/*[@name='hid.AddressLine1']"), s); 
 			
 	}
