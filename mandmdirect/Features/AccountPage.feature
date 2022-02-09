@@ -36,7 +36,7 @@ Then I should be in the "Address" section
 When I select to edit "address" section
 Then I can change address2 and select save so that it will be updated
 
-@test1
+
 Scenario: Open the Delivery Addresses section
 Given I select the "Delivery Addresses" Tab
 Then I should be in the "Delivery" section

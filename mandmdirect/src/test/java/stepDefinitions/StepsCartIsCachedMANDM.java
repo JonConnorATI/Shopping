@@ -1,7 +1,5 @@
 package stepDefinitions;
 
-import org.openqa.selenium.By;
-
 import commonMethods.commonMethodsMANDM;
 import io.cucumber.java.en.*;
 import pageObjects.HomePageMANDM;
