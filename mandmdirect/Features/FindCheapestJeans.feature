@@ -1,7 +1,7 @@
 Feature: Sign in
 
 Find the cheapest pair of jeans and verify the 1st item in the list has the lowest price
-@test1
+
 Scenario: Search for Jeans, Mens, straight fit, 36in wasit, 30in leg and sort by lowest price
 Given I open the website I will be in the landing page
 When I select Mens I will be in the mens clothing page
