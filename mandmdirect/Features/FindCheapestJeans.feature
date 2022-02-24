@@ -1,4 +1,4 @@
-Feature: Sign in
+Feature: Find the cheapest pair of Jeans
 
 Find the cheapest pair of jeans and verify the 1st item in the list has the lowest price
 
