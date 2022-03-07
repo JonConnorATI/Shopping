@@ -27,7 +27,7 @@ public class commonMethodsMANDM {
 
 	public static void setDriver() {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\JonCo\\git\\Shopping\\Shopping\\mandmdirect\\Drivers\\chromedriver.exe");
+				"C:\\Users\\JonCo\\git\\Shopping\\mandmdirect\\Drivers\\chromedriver.exe");
 				driver = new ChromeDriver();
 
 	}
