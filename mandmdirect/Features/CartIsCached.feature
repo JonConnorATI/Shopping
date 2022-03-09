@@ -12,7 +12,7 @@ Then the shopping basket count will be 0
 When I select the sizes and products that I want from the REFINE BY side menu
 |Product|Size	|Product Type	|
 |Jeans	|36x30	|Straight Jeans	|
-And add them to the cart 
+And add them to the cart size "Waist 36"
 Then the shopping basket count will be 1
 Given that I log out
 Then the shopping basket count will be 0

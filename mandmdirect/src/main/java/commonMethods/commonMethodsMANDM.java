@@ -10,45 +10,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import basePage.basePageMANDM;
+
 
 //import cucumber.api.java.After;
 //import cucumber.api.java.Before;
 
-public class commonMethodsMANDM {
+public class commonMethodsMANDM  extends basePageMANDM{
 
-	public static WebDriver driver;
-
-	public static void setDriver() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\JonCo\\git\\Shopping\\mandmdirect\\Drivers\\chromedriver.exe");
-				driver = new ChromeDriver();
-
-	}
-
-	//open the url
-	public static void navigateToHomePage() {
-		driver.manage().window().maximize();
-		//driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-		String homePage = "https://www.mandmdirect.ie/";
-		driver.get(homePage);
-
-	}
-
-	//close the webdriver and clear cookies
-	public static void closeDriver() {
-		driver.manage().deleteAllCookies();
-		driver.close();
-		driver.quit();
-
-	}
+	
 
 	//Perform a click
 	public static void Click(By locator) {
@@ -173,12 +149,14 @@ public class commonMethodsMANDM {
 		
 	}
 	
+	//Method to click a save button
 	public static void save() {
 		Click(By.cssSelector("#btnSave"));
 		waitForPageLoaded(driver);
 		
 	}
 	
+	//Method to refresh the page
 	public static void refreshPage() {
 		driver.navigate().refresh();
 		waitForPageLoaded(driver);

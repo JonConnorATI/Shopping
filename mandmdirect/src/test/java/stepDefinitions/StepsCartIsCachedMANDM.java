@@ -25,10 +25,9 @@ public class StepsCartIsCachedMANDM extends commonMethodsMANDM {
 	   
 	}
 	
-		
-	@And("add them to the cart")
-	public void add_them_to_the_cart() {
-	   MensClothingPageMANDM.addToCart();
+	@And("add them to the cart size {string}")
+	public void add_them_to_the_cart_size(String string) {
+		MensClothingPageMANDM.addToCart(string);
 	}
 		
 	@Given("that I log out")
