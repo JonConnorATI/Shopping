@@ -1,3 +1,5 @@
+#The cart being cached is now covered by the CartAddsUpFeature
+
 Feature: The shopping basket is cached
 
 An item is added to the cart and I leave, when I come back the item should still be in the cart.

@@ -22,20 +22,12 @@ public void select_the_first_in_the_list_size(String string) {
 	MensClothingPageMANDM.addToCart(string);
 }
 
-@Then("the cart total should be <price1>")
-public void the_cart_total_should_be_price1() {
-	MensClothingPageMANDM.checkItemPrice1VScartTotal();
+
+@Then("the cart total should be price {int}")
+public void the_cart_total_should_be_price(Integer int1) {
+	MensClothingPageMANDM.checkItemPriceCartTotal();
 }
 
-@Then("the cart total should be <price2>")
-public void the_cart_total_should_be_price2() {
-	MensClothingPageMANDM.checkItemPrice2VScartTotal();
-}
-
-@Then("the cart total should be <price3>")
-public void the_cart_total_should_be_price3() {
-	MensClothingPageMANDM.checkItemPrice3VScartTotal();
-}
 
 
 
