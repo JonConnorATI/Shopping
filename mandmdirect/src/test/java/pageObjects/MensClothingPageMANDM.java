@@ -85,9 +85,9 @@ public class MensClothingPageMANDM extends commonMethodsMANDM {
 	}
 	
 	//Selects a product and adds to the cart
-	public static void addToCart() {
+	public static void addToCart(String string) {
 		Click(By.xpath("(//*[@id='productlist']//button[@class='product__quick-buy'])[1]"));
-		Click(By.xpath("(//button[@class='attributes__select' and contains(text(), 'Waist 36')])[1]"));
+		Click(By.xpath("(//button[@class='attributes__select' and contains(text(),'" + string + "')])[1]"));
 		Click(By.xpath("(//*[@class='product__atb buyButton'])[1]"));
 		Click(By.cssSelector("#atbClose"));
 		
@@ -99,9 +99,111 @@ public class MensClothingPageMANDM extends commonMethodsMANDM {
 		
 		
 	}
+	
+	//Hover over the basket and get the item price, then get the cart total and assert they are the same
+	public static void checkItemPrice1VScartTotal() {
+		//Refresh the page to ensure cart is updated
+		refreshPage();
+		
+		//Hover over the basket item to display the items in the basket
+		hoverOverElement(By.cssSelector(".basket__svg"));
+		//Check that the basket is displayed and if not then hover over it again
+		if(isElementNotPresent(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[1]")))
+			hoverOverElement(By.cssSelector(".basket__svg"));
+						
+		//Get the price of the items and store it as the integers 'PriceOfItem1', 'PriceOfItem2'
+		WaitForElementToBePresent(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[1]"));
+		//Get the price of the item and store it as the String 'PriceOfItem1'
+		WebElement itemPrice1 = driver.findElement(By.cssSelector("span[data-bind='text: FormattedTotal']"));
+		String PriceOfItem1 = itemPrice1.getText();
+		//Close the basket
+		Click(By.id("miniBasketClose"));
+		
+		
+		//Get the total of the cart from the summary at the top of the screen and store it as the string 'SumOfCart1'
+		WebElement CartSum1 = driver.findElement(By.cssSelector("div[class='text__total'] span[class='notranslate']"));
+		String SumOfCart1 = CartSum1.getText();
+		
+		//Assert that 'PriceOfItem1' is the same as 'Sum of Cart1'
+		Assert.assertEquals(PriceOfItem1, "€" + SumOfCart1);
+		System.out.println("Price of Item is " + PriceOfItem1 + " is the same as the Cart Total €" + SumOfCart1);
+		
+		}
 
 	
+	//Hover over the basket and get the item prices, then get the cart total and assert they are the same
+	public static void checkItemPrice2VScartTotal() {
+		//Refresh the page to ensure cart is updated
+		refreshPage();
+		
+		//Hover over the basket item to display the items in the basket
+		hoverOverElement(By.cssSelector(".basket__svg"));
+		//Check that the basket is displayed and if not then hover over it again
+		if(isElementNotPresent(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[1]")))
+			hoverOverElement(By.cssSelector(".basket__svg"));
+				
+		//Get the price of the items and store it as the integers 'PriceOfItem1', 'PriceOfItem2'
+		WaitForElementToBePresent(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[1]"));
+		WebElement itemPrice1 = driver.findElement(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[1]"));
+		long PriceOfItem1 = Integer.parseInt(itemPrice1.getText().replaceAll("[^0-9]", ""));
+		WebElement itemPrice2 = driver.findElement(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[2]"));
+		long PriceOfItem2 = Integer.parseInt(itemPrice2.getText().replaceAll("[^0-9]", ""));
+		long PriceOfItems = PriceOfItem1 + PriceOfItem2;
+		//Close the basket
+		Click(By.id("miniBasketClose"));
+				
+		//Get the total of the cart from the summary at the top of the screen and store it as the integer 'SumOfCart1'
+		WebElement CartSum1 = driver.findElement(By.cssSelector("div[class='text__total'] span[class='notranslate']"));
+		long SumOfCart1 = Integer.parseInt(CartSum1.getText().replaceAll("[^0-9]", ""));
+				
+		//Assert that 'PriceOfItem1' is the same as 'Sum of Cart1'
+		Assert.assertEquals(PriceOfItems, SumOfCart1);
+		System.out.println("Total Price of Items is €" + PriceOfItems + " is the same as the Cart Total €" + SumOfCart1);
+				
+		}
 	
+	//Hover over the basket and get the item prices, then get the cart total and assert they are the same
+	public static void checkItemPrice3VScartTotal() {
+		//Refresh the page to ensure cart is updated
+		refreshPage();
+		
+		//Hover over the basket item to display the items in the basket
+		hoverOverElement(By.cssSelector(".basket__svg"));
+		//Check that the basket is displayed and if not then hover over it again
+		if(isElementNotPresent(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[1]")))
+			hoverOverElement(By.cssSelector(".basket__svg"));
+						
+		//Get the price of the items and store it as the integers 'PriceOfItem1', 'PriceOfItem2'
+		WaitForElementToBePresent(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[1]"));
+		WebElement itemPrice1 = driver.findElement(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[1]"));
+		long PriceOfItem1 = Integer.parseInt(itemPrice1.getText().replaceAll("[^0-9]", ""));
+		WebElement itemPrice2 = driver.findElement(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[2]"));
+		long PriceOfItem2 = Integer.parseInt(itemPrice2.getText().replaceAll("[^0-9]", ""));
+		WebElement itemPrice3 = driver.findElement(By.xpath("(//*[@id='basketContent']//*[@class='mini-basket-item__price'])[3]"));
+		long PriceOfItem3 = Integer.parseInt(itemPrice3.getText().replaceAll("[^0-9]", ""));
+		
+		long PriceOfItems = PriceOfItem1 + PriceOfItem2 + PriceOfItem3;
+		//Close the basket
+		Click(By.id("miniBasketClose"));
+						
+		//Get the total of the cart from the summary at the top of the screen and store it as the integer 'SumOfCart1'
+		WebElement CartSum1 = driver.findElement(By.cssSelector("div[class='text__total'] span[class='notranslate']"));
+		long SumOfCart1 = Integer.parseInt(CartSum1.getText().replaceAll("[^0-9]", ""));
+						
+		//Assert that 'PriceOfItem1' is the same as 'Sum of Cart1'
+		Assert.assertEquals(PriceOfItems, SumOfCart1);
+		System.out.println("Total Price of Items is €" + PriceOfItems + " is the same as the Cart Total €" + SumOfCart1);
+						
+		
+	}
+		
 	
+
 
 }
+
+	
+	
+	
+
+
