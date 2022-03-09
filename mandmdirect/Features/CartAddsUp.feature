@@ -1,4 +1,3 @@
-@TEST1
 Feature: Cart adds up correctly when items are added
   The cart has no items, on adding the cheapest Jeans (36 X 30), then a shirt (XL) and then shoes (size 10). 
   The total displayed on screen should increase correctly as each item is added.
