@@ -10,7 +10,7 @@ Feature: Cart adds up correctly when items are added. Cart is cached and remeber
 	And I want to go shopping
 	When I select Mens I will be in the mens clothing page
 	
-  Scenario: Add Jeans 
+  Scenario: Add Jeans
 		When I select the product and size I want
 		|Product|Size	  |
 		|Jeans	|36x30	|
