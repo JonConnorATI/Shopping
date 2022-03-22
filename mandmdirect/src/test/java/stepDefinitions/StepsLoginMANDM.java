@@ -1,12 +1,9 @@
 package stepDefinitions;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import commonMethods.commonMethodsMANDM;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import pageObjects.HomePageMANDM;
 import io.cucumber.datatable.*;
@@ -15,17 +12,7 @@ import pageObjects.LoginPageMANDM;
 
 public class StepsLoginMANDM extends commonMethodsMANDM {
 
-	@Before()
-	public void setup() throws IOException {
-
-		setDriver();
-	}
-
-	@After()
-	public void tearDown() {
-
-		closeDriver();
-	}
+	
 
 	@Given("I open the website and select sign in")
 	public void i_open_the_website_and_select_sign_in() throws InterruptedException {
