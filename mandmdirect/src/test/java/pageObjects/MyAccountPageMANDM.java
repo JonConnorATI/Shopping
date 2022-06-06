@@ -121,6 +121,8 @@ public class MyAccountPageMANDM extends commonMethodsMANDM {
 
 	//Select edit button in the Account page section
 	public static void selectEditSection(String string) {
+		
+		WaitForElementToBePresent(By.cssSelector("#edit-" + string + "-link"));
 		Click(By.cssSelector("#edit-" + string + "-link"));
 		waitForPageLoaded(driver);
 		
